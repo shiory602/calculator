@@ -1,2 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Calculator</title>
+    <h1 style="text-align: center">Calculator</h1>
+        <style>
+            #calc-contain{
+                position: relative;
+                width: 400px;
+                border: 2px solid rgb(199, 199, 199);
+                border-radius: 10px;
+                background: #ffa2c1;
+                margin-top: 10px;
+            }
+            input {
+                box-shadow: 0 3px rgba(0,0,0,0.4);
+            }
+            input:active{
+                transform: translateY(3px);
+                box-shadow: 0px 0px;
+            }
+            input[type=button]{
+                background: #ffec80;
+                width: 15%;
+                font-size: 20px;
+                font-weight: 900;
+                margin: 3%;
+                border-radius: 10px;
+                color: #b180ff;
+            }
+            input[type=text]{
+                position: relative;
+                display: block;
+                border-radius: 10px;
+                width: 90%;
+                height: 64px;
+                margin: 24px auto;
+                font-size: 30px;
+                background: #2c1a36;
+                color: #ebe6cd;
+            }
+        </style>
+        <script>
+            function add() {
+                var num1 = calculator.display.value
 
-Implement your own Frontend Calculator that will 'call your api' in order to get results
+            }
+
+            var i = 0;
+            function brackets(){
+                if(i == 0){
+                    calculator.display.value += '(';
+                    i = 1;	
+                }
+                else if(i == 1){
+                    calculator.display.value += ')';
+                    i = 0;
+                }
+            }
+
+            function backspace(){
+                var x = calculator.display.value; 
+                if(x.length > 0){
+                    x = x.substring(0, x.length-1); 
+                    calculator.display.value = x;
+                }
+            }
+        </script>
+</head>
+<body>
+    <center>
+        <div id="calc-contain">
+            <form name="calculator">
+                <input type="text" name="display"/>
+                <br/>
+                <input type="button" value=" 7 " onclick="calculator.display.value +='7'"/>
+                <input type="button" value=" 8 " onclick="calculator.display.value +='8'"/>
+                <input type="button" value=" 9 " onclick="calculator.display.value +='9'"/>
+                <input type="button" value=" + " onclick="calculator.display.value +='+'" style = "background: #97ff6e"/>
+                <br/>
+                <input type="button" value=" 4 " onclick="calculator.display.value +='4'"/>
+                <input type="button" value=" 5 " onclick="calculator.display.value +='5'"/>
+                <input type="button" value=" 6 " onclick="calculator.display.value +='6'"/>
+                <input type="button" value=" - " onclick="calculator.display.value +='-'" style = "background: #97ff6e"/>
+                <br/>
+                <input type="button" value=" 1 " onclick="calculator.display.value +='1'"/>
+                <input type="button" value=" 2 " onclick="calculator.display.value +='2'"/>
+                <input type="button" value=" 3 " onclick="calculator.display.value +='3'"/>
+                <input type="button" value=" x " onclick="calculator.display.value +='*'" style = "background: #97ff6e"/>
+                <br/>
+                <input type="button" value=" C " onclick="calculator.display.value =''"/>
+                <input type="button" value=" 0 " onclick="calculator.display.value +='0'"/>
+                <input type="button" value=" &#8592 " onclick="backspace()"/>
+                <input type="button" value=" / " onclick="calculator.display.value +='/'" style = "background: #97ff6e"/>
+                <br/>
+                <input type="button" value=" % " onclick="calculator.display.value +='%'" style = "background: #ffb13d"/>
+                <input type="button" value=" . " onclick="calculator.display.value +='.'" style = "background: #ffb13d"/>
+                <input type="button" value=" +/- " onclick="calculator.display.value +='-' + (calculator.display.value)" style = "background: #ffb13d"/>
+                <input type="button" value="()" onclick="brackets()" style = "background: #ffb13d"/>
+                <br/>
+                <input type="button" value=" = " onclick="calculator.display.value = eval(calculator.display.value)" style = "background: #1b63ff ; width: 92%;"/>
+                <br/>
+            </form>
+        </div>
+    </center>
+</body>
+</html>

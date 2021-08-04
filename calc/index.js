@@ -14,7 +14,7 @@ app.use(logger('dev'));
 
 // set us to use JSON, but, here, in this app, we want to use html, so we leave this commented out
 // if we uncomment it, we will be unable to serve html files and express stops speaking 'html' and speaks 'json' instead
-// which would cause a brownser to not get the <head> or other required tags to properly form a html document
+// which would cause a browser to not get the <head> or other required tags to properly form a html document
 // app.use(express.json());
 
 
